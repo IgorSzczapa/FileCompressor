@@ -11,9 +11,11 @@
 
 char binToChar(const std::string& bin)
 {
+	// Loop is faster then bitset casting
 	char c = 0;
 	for (auto b : bin) (c <<= 1) += (b == '1');
 	return c;
+	// return static_cast<char>(std::bitset<8>(bin).to_ulong);
 }
 
 std::wstring readFile(std::string filename)
